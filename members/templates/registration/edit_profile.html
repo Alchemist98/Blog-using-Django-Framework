@@ -1,0 +1,30 @@
+{% extends "Blog/base.html" %}
+{% block title %} Edit Profile {% endblock %}
+{% block content %}
+
+<style type="text/css">
+
+	h2{
+		text-align: center;
+	}
+
+	form{
+		width: 800px;
+		margin: 0 auto;
+	}
+</style>
+
+<h2>Edit Your Profile</h2>
+
+<div class="form-group">
+	<form method="POST">
+		{% csrf_token %}
+		{{form.as_p}}
+		<div class="col-md-12 text-center">
+			<button class="btn btn-secondary" >Update</button>
+		</div>
+	</form>
+</div>
+
+
+{% endblock %}

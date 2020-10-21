@@ -1,0 +1,36 @@
+{% extends "Blog/base.html" %}
+{% block title %} Create A New Blog Category {% endblock %}
+{% block content %}
+
+
+{% if user.is_authenticated %}
+	<style type="text/css">
+
+		h2{
+			text-align: center;
+		}
+
+		form{
+			width: 650px;
+	    	margin: 0 auto;
+		}
+	</style>
+
+	<h2>Create A New Blog Category</h2>
+
+	<div class="form-group">
+		<form method="POST">
+			{% csrf_token %}
+			{{form.as_p}}
+			<button class="btn btn-secondary" >Add Category</button>
+		</form>
+	</div>
+{% else %}
+	<p>You aren't allowed here.</p>
+	<h5>Please <a href="{% url 'login' %}">Login</a></h5>
+	<br/><br/>
+	<h5>Don't have an account? <a href="{% url 'register' %}">Register</a></h5>
+{% endif %}
+
+
+{% endblock %}

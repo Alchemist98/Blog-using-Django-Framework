@@ -1,0 +1,41 @@
+{% extends "Blog/base.html" %}
+{% block title %} Login {% endblock %}
+{% block content %}
+
+<style type="text/css">
+
+	h2{
+		text-align: center;
+	}
+
+	form{
+		width: 500px;
+		margin: 0 auto;
+	}
+</style>
+
+<h2>Welcome Back</h2>
+<br>
+<div class="form-group">
+	<form method="POST">
+		{% csrf_token %}
+		<form>
+			<div class="form-group">
+				<input type="text" class="form-control" name="username" placeholder="Username">
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control" name="password" placeholder="Password">
+			</div>
+			<div class="col-md-12 text-left">
+				<button class="btn btn-secondary" style="width: 80px" >Login</button>
+			</div>
+
+			<br/>
+
+			Not registered? Sign Up <a href="{% url 'register' %}">Click Here</a>
+
+		</form>
+</div>
+
+
+{% endblock %}

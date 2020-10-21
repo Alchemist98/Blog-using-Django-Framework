@@ -1,0 +1,28 @@
+{% extends "Blog/base.html" %}
+{% block title %} Register {% endblock %}
+{% block content %}
+
+<style type="text/css">
+
+	h2{
+		text-align: center;
+	}
+
+	form{
+		width: 650px;
+		margin: 0 auto;
+	}
+</style>
+
+<h2>Welcome to SciPy Blogs</h2>
+
+<div class="form-group">
+	<form method="POST">
+		{% csrf_token %}
+		{{form.as_p}}
+		<button class="btn btn-secondary" >Register</button>
+	</form>
+</div>
+
+
+{% endblock %}
